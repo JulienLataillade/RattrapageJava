@@ -9,7 +9,7 @@ import javax.swing.SwingUtilities;
 import controller.IOrderPerformer;
 import model.IModel;
 
-class TronView implements Runnable {
+public class TronView implements Runnable, IView {
 	private final TronGraphicsBuilder	tronGraphicsBuilder;
 	private final EventPerformer		eventPerformer;
 	private final Observable			observable;
@@ -25,10 +25,12 @@ class TronView implements Runnable {
 
 	}
 
+	@Override
 	public void closeAll() {
 		this.easyFrame.dispose();
 	}
 
+	@Override
 	public void displayMessage(final String message) {
 		JOptionPane.showMessageDialog(null, message);
 	}
@@ -47,6 +49,9 @@ class TronView implements Runnable {
 		this.grid = grid;
 		for (int x = 0; x < this.getGrid().getWidth(); x++) {
 			for (int y = 0; y < this.getGrid().getHeight(); y++) {
+				if ((x == 0) || (x == 399) || (y == 0) || (y == 599)) {
+					this.getGrid().setMatrixXY(ElementGrid.WALL, x, y);
+				}
 				this.getGrid().setMatrixXY(ElementGrid.GROUND, x, y);
 			}
 		}

@@ -34,6 +34,18 @@ public class ControllerFacade implements IController {
 		this.model = model;
 	}
 
+	@Override
+	public void checkCollision() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void gameLoop() {
+		// TODO Auto-generated method stub
+
+	}
+
 	/**
 	 * Gets the model.
 	 *
@@ -50,6 +62,24 @@ public class ControllerFacade implements IController {
 	 */
 	public IView getView() {
 		return this.view;
+	}
+
+	@Override
+	public void orderPerform(IUserOrder userOrder) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void play() {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void setView(IView view) {
+		// TODO Auto-generated method stub
+
 	}
 
 	/**

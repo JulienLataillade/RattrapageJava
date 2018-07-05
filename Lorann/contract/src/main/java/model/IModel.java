@@ -1,6 +1,5 @@
 package model;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -11,46 +10,19 @@ import java.util.ArrayList;
  */
 public interface IModel {
 
-	/**
-	 * Gets the all examples.
-	 *
-	 * @return the all examples
-	 * @throws SQLException
-	 *             the SQL exception
-	 */
-	// List<Example> getAllExamples() throws SQLException;
-
-	/**
-	 * Gets the example by id.
-	 *
-	 * @param id
-	 *            the id
-	 * @return the example by id
-	 * @throws SQLException
-	 *             the SQL exception
-	 */
-	// Example getExampleById(int id) throws SQLException;
-
-	/**
-	 * Gets the example by name.
-	 *
-	 * @param name
-	 *            the name
-	 * @return the example by name
-	 * @throws SQLException
-	 *             the SQL exception
-	 */
-	// Example getExampleByName(String name) throws SQLException;
+	public void createWall(final int player);
 
 	public int getHeight();
 
 	public ArrayList<ILightcycle> getLightcycle();
 
+	ILightcycle getLightcycleByPlayer(int player);
+
 	public IMotionLess getMatrixXY(final int x, final int y);
 
-	ILightcycle getMobileByPlayer(int player);
-
 	public int getWidth();
+
+	public void setLightcyclesHaveMoved();
 
 	public void setMatrixXY(final IMotionLess motionless, final int x, final int y);
 }

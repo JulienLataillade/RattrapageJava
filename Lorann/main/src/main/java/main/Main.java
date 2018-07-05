@@ -1,10 +1,12 @@
 package main;
 
-import java.sql.SQLException;
+import java.awt.Color;
 
-import controller.ControllerFacade;
-import model.ModelFacade;
-import view.ViewFacade;
+import controller.TronController;
+import model.Grid;
+import model.Lightcycle;
+import model.Position;
+import view.TronView;
 
 /**
  * <h1>The Class Main.</h1>
@@ -21,13 +23,12 @@ public abstract class Main {
 	 *            the arguments
 	 */
 	public static void main(final String[] args) {
-		final ControllerFacade controller = new ControllerFacade(new ViewFacade(), new ModelFacade());
-
-		try {
-			controller.start();
-		} catch (final SQLException exception) {
-			exception.printStackTrace();
-		}
+		final Grid grid = new Grid(400, 600);
+		grid.addLightcycle(new Lightcycle(new Position(200, 200), 1, Color.BLUE, 0));
+		grid.addLightcycle(new Lightcycle(new Position(200, 400), 3, Color.RED, 1));
+		final TronController controller = new TronController(grid);
+		controller.setView(new TronView(controller, grid, grid));
+		controller.play();
 	}
 
 }
